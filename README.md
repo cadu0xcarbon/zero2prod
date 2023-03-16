@@ -1,29 +1,66 @@
-TODO
+# Zero To Production In Rust
 
-### See all logs
+## Requirements
 
-When you want to see all logs coming out of a certain test case to debug it you can run:
-$ TEST_LOG=true cargo test health_check_works | bunyan
+- docker
+- rust
 
-### Generate new migration script
+## Running locally
 
-sqlx migrate add create_subscription_tokens_table
+To initialize database locally:
 
-### Run docker zero2prod
-
-$ docker build --tag zero2prod --file Dockerfile .
-$ docker run -p 8000:8000 zero2prod
-
-### Initialize database locally
-
-```
+```bash
 ./scripts/init_db.sh
 ```
 
-### Run migrations locally
+To build the project:
 
+```bash
+cargo build
 ```
+
+To run the project:
+
+```bash
+cargo run
+```
+
+<http://127.0.0.1:8000> should be up and running
+
+## Notes
+
+When you want to see all logs coming out of a certain test case to debug it you can run:
+
+```bash
+TEST_LOG=true cargo test health_check_works | bunyan
+```
+
+To generate a new migration script:
+
+```bash
+sqlx migrate add create_subscription_tokens_table
+```
+
+To run docker zero2prod build:
+
+```bash
+docker build --tag zero2prod --file Dockerfile .
+```
+
+To run the container:
+
+```bash
+docker run -p 8000:8000 zero2prod
+```
+
+To run migrations locally:
+
+```bash
 SKIP_DOCKER=true ./scripts/init_db.sh
 ```
 
-### TODO add lib to scan for unused crates in Cargo.toml
+To scan for unused crates in Cargo:
+
+```bash
+cargo +nightly udeps
+```
