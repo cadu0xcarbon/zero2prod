@@ -2,8 +2,8 @@
 
 ## Requirements
 
-- docker
 - rust
+- docker
 
 ## Running locally
 
@@ -27,7 +27,7 @@ cargo run
 
 <http://127.0.0.1:8000> should be up and running
 
-## Notes
+## Commands
 
 When you want to see all logs coming out of a certain test case to debug it you can run:
 
@@ -64,3 +64,7 @@ To scan for unused crates in Cargo:
 ```bash
 cargo +nightly udeps
 ```
+
+## Notes
+
+`actix-web-flash-messages` handles cookies automatically
