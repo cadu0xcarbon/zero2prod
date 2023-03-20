@@ -13,6 +13,12 @@ To initialize database locally:
 ./scripts/init_db.sh
 ```
 
+To initialize redis locally:
+
+```bash
+./scripts/init_redis.sh
+```
+
 To build the project:
 
 ```bash

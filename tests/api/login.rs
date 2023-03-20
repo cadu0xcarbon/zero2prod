@@ -1,7 +1,5 @@
 use crate::helpers::assert_is_redirect_to;
 use crate::helpers::spawn_app;
-use reqwest::header::HeaderValue;
-use std::collections::HashSet;
 
 #[tokio::test]
 async fn an_error_flash_message_is_set_on_failure() {
@@ -38,6 +36,6 @@ async fn redirect_to_admin_dashboard_after_login_success() {
     let response = app.post_login(&login_body).await;
     assert_is_redirect_to(&response, "/admin/dashboard");
     // Act - Part 2 - Follow the redirect
-    let html_page = app.get_admin_dashboard().await;
+    let html_page = app.get_admin_dashboard().await.text().await.unwrap();
     assert!(html_page.contains(&format!("Welcome {}", app.test_user.username)));
 }
