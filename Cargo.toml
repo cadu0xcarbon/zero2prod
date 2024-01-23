@@ -16,14 +16,17 @@ actix-web = "4"
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 serde = "1.0.115"
 config = { version = "0.13", default-features = false, features = ["yaml"] }
-sqlx = { version = "0.6", default-features = false, features = [
+sqlx = { version = "0.6.2", default-features = false, features = [
     "runtime-actix-rustls",
     "macros",
     "postgres",
+    "bigdecimal",
     "uuid",
     "chrono",
     "migrate",
     "offline",
+    "postgres",
+    "json",
 ] }
 uuid = { version = "1", features = ["v4", "serde"] }
 chrono = { version = "0.4.22", default-features = false, features = ["clock"] }
